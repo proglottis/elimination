@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/proglottis/elimination"
+	"github.com/proglottis/elimination/simple"
 	"gonum.org/v1/gonum/graph/encoding/dot"
 )
 
@@ -25,7 +26,7 @@ func run() error {
 	flag.StringVar(&tournamentType, "type", "double", "single or double")
 	flag.Parse()
 
-	tournament := elimination.NewTournament()
+	tournament := simple.NewTournament()
 
 	var builder Builder
 	switch tournamentType {

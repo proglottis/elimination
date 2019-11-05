@@ -1,9 +1,11 @@
-package elimination
+package elimination_test
 
 import (
 	"fmt"
 	"testing"
 
+	. "github.com/proglottis/elimination"
+	"github.com/proglottis/elimination/simple"
 	"github.com/stretchr/testify/assert"
 	"gonum.org/v1/gonum/graph"
 )
@@ -51,7 +53,7 @@ func TestSingle(t *testing.T) {
 		},
 	} {
 		t.Run(fmt.Sprintf("%d teams", len(tc.Teams)), func(t *testing.T) {
-			tournament := NewTournament()
+			tournament := simple.NewTournament()
 			s := Single{
 				G: tournament,
 			}
@@ -70,7 +72,7 @@ func TestSingle(t *testing.T) {
 func teamsOf(nodes []graph.Node) []Team {
 	var teams []Team
 	for _, n := range nodes {
-		m, ok := n.(*TournamentMatch)
+		m, ok := n.(*simple.Match)
 		if !ok {
 			continue
 		}

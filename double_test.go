@@ -1,9 +1,11 @@
-package elimination
+package elimination_test
 
 import (
 	"fmt"
 	"testing"
 
+	. "github.com/proglottis/elimination"
+	"github.com/proglottis/elimination/simple"
 	"github.com/stretchr/testify/assert"
 	"gonum.org/v1/gonum/graph"
 )
@@ -51,7 +53,7 @@ func TestDouble(t *testing.T) {
 		},
 	} {
 		t.Run(fmt.Sprintf("%d teams", len(tc.Teams)), func(t *testing.T) {
-			tournament := NewTournament()
+			tournament := simple.NewTournament()
 			s := Double{
 				G: tournament,
 			}
